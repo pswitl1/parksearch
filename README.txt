@@ -1,8 +1,7 @@
-To make html work run:
+clone repo:
 
+	git clone https://github.com/pswitl1/parksearch.git
 
-python -m SimpleHTTPServer
-
-in terminal
-
-Then type 'localhost:8000' in browser
+open html:
+	python -m SimpleHTTPServer
+	open url: 'localhost:8000'
