@@ -15,9 +15,9 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Browse</a>
-					<a class="navbar-brand" href="#">Search</a>
-					<a class="navbar-brand" href="#">Login</a>
+					<button class="navbar-brand btn btn-xs nav-btn" ng-click="switchTab('browse')">Browse</button>
+					<button class="navbar-brand btn btn-xs nav-btn" ng-click="switchTab('search')">Search</button>
+					<button class="navbar-brand btn btn-xs nav-btn" ng-click="switchTab('login')">Login</button>
 				</div>
 			</div>
 		</nav>
@@ -39,7 +39,7 @@
 	<input type="text" placeholder="leave a message" ng-model="message">
 		<h2> {{ message }}</h2>-->
 
-		<div class="container">
+		<div id="browseContainter" class="container" ng-show="showBrowse === true" ng-hide="showBrowse === false">
 			<div class="col-sm-4" ng-repeat="park in parks | parksFilter:parksFilterModel">
 				<div class="thumbnail">
 					<img ng-src="images/{{park.image}}" alt="{{park.name}}">
@@ -70,6 +70,12 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div id="searchContainter" class="container" ng-show="showSearch === true" ng-hide="showSearch === false">
+			<p>Add search funcionality here</p>
+		</div>
+		<div id="loginContainer" class="container" ng-show="showLogin === true" ng-hide="showLogin === false">
+			<p>Add login funcionality here</p>
 		</div>
 
 	</body>
