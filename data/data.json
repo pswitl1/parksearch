@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Wood Drive Park",
+		"address": "123 Wood Drive",
+		"description": "Come to Wood Drive park to have a cookout with friends and family!",
+		"details": {
+			"pets_allowed": "false",
+			"alcohol_allowed": "true"
+		},
+		"image": "park1.jpg"
+	},
+	{
+		"name": "Maple Street Park",
+		"address": "456 Maple Street",
+		"description": "Maple Street park has a great playground for children and is pet friendly",
+		"details": {
+			"pets_allowed": "true",
+			"alcohol_allowed": "false"
+		},
+		"image": "park2.jpg"
+	},
+	{
+		"name": "Park3",
+		"address": "1000 Drive",
+		"description": "Come to Wood Drive park to have a cookout with friends and family!",
+		"details": {
+			"pets_allowed": "false",
+			"alcohol_allowed": "true"
+		},
+		"image": "park1.jpg"
+	}
+]

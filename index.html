@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>parkSearch</title>
+			
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css"
+	</head>
+
+	<body ng-app="parkSearch" ng-controller="parkSearchController">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Browse</a>
+					<a class="navbar-brand" href="#">Search</a>
+					<a class="navbar-brand" href="#">Login</a>
+				</div>
+			</div>
+		</nav>
+
+			<div class="col-sm-12 filter-form">
+				<div class="col-sm-6">
+					<div class="input-group">
+						<span class="input-group-addon">Parks Filter</span>
+						<select name="parksFilter" id="parksFilter" ng-model="parksFilterModel" class="form-control">
+							<option value="pets_allowed">Pets Allowed</option>
+							<option value="alcohol_allowed">Alcohol Allowed</option>
+						</select>
+					</div>
+				</div>
+			</div>
+	<!--<button ng-click="showMessage = !showMessage">Toggle Message</button>
+
+	<button ng-show="showMessage == true">Secret Message</button>
+	<input type="text" placeholder="leave a message" ng-model="message">
+		<h2> {{ message }}</h2>-->
+
+		<div class="container">
+			<div class="col-sm-4" ng-repeat="park in parks | parksFilter:parksFilterModel">
+				<div class="thumbnail">
+					<img ng-src="images/{{park.image}}" alt="{{park.name}}">
+					<div class="caption">
+						<h3>{{park.name}}</h3>
+						<h4><i class="glyphicon glyphicon-home"></i> Address: {{park.address}}</h4>
+
+						<button class="btn btn-xs btn-success"
+								ng-hide="showDetails === true"
+								ng-click="showDetails = !showDetails">
+								Details
+						</button>
+
+						<button class="btn btn-xs btn-danger"
+								ng-show="showDetails === true"
+								ng-click="showDetails = !showDetails">
+								Close
+						</button>
+
+						<div class="details" ng-show="showDetails === true">
+							<h4>
+								<span class="label label-primary">Alcohol allowed: {{park.details.alcohol_allowed}}</span>
+								<span class="label label-primary">Pets allowed: {{park.details.pets_allowed}}</span>
+							</h4>
+							<p>{{park.description}}</p>
+						</div>						
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+
+
+
+
+
+
+
+
+	<!-- JAVASCRIPT -->
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+
+	<!-- angularjs -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
+
+	<!-- Optional theme 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+	<!-- bootstrap js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- ui boostrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+	<!-- app js -->
+	<script src="app.js"></script>
+
+	<!-- scripts -->
+	<script src="scripts/parkSearchController.js"></script>
+	<script src="scripts/parksFactory.js"></script>
+	<script src="scripts/parksFilter.js"></script>
+
+</html>
