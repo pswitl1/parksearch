@@ -1,8 +1,12 @@
 .filter-form {
 	margin-bottom: 10px;
 	padding: 10px;
-	background-color: #f7f7f7;
+	background-color: #f7f777;
 }
 .nav-btn {
 	padding-right: 10px;
+}
+
+.login-div {
+	background-color: #f7f7f7;
 }
