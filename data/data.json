@@ -1,4 +1,5 @@
-[
+{
+ 	"parks" : [
 	{
 		"name": "Angel Park",
 		"address": "9675 Honeygo Boulevard Perry Hall, Maryland 21128",
@@ -6,9 +7,17 @@
 		"details": {
 			"Play Grounds": "true",
 			"Amphitheater": "true",
-			"alcohol_allowed": "true",
+			"alcohol_allowed": "false",
 			"pets_allowed": "true",
-			"all": "false"
+			"new_filter1": "false",
+			"new_filter2": "false",
+			"new_filter3": "false",
+			"new_filter4": "false",
+			"new_filter5": "false",
+			"new_filter6": "false",
+			"new_filter7": "true",
+			"new_filter8": "true",
+			"new_filter9": "false"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/h/e/angelpark.jpg"
 	},
@@ -17,10 +26,19 @@
 		"address": "1935 Back River Neck Road Essex, Maryland 21221",
 		"description": "Historical Ballestone-Stansubry House!",
 		"details": {
-			"Historic Site": "true",
-			"pets_allowed": "false",
+			"Play Grounds": "false",
+			"Amphitheater": "false",
 			"alcohol_allowed": "true",
-			"all": "false"
+			"pets_allowed": "true",
+			"new_filter1": "true",
+			"new_filter2": "false",
+			"new_filter3": "false",
+			"new_filter4": "true",
+			"new_filter5": "true",
+			"new_filter6": "true",
+			"new_filter7": "false",
+			"new_filter8": "false",
+			"new_filter9": "true"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/l/s/ballestone_manor.jpg"
 	},
@@ -29,11 +47,19 @@
 		"address": "Galloway Avenue Cockeysville, Maryland 21030",
 		"description": "The park is open for operation on weekdays between 3:30 p.m. and sunset, and weekends between noon and sunset, from Spring to Fall.",
 		"details": {
-			"pets_allowed": "false",
+			"Play Grounds": "true",
+			"Amphitheater": "false",
 			"alcohol_allowed": "true",
-			"State Park": "true",
-			"Skate Park": "true",
-			"all": "true"
+			"pets_allowed": "false",
+			"new_filter1": "false",
+			"new_filter2": "true",
+			"new_filter3": "true",
+			"new_filter4": "false",
+			"new_filter5": "true",
+			"new_filter6": "true",
+			"new_filter7": "false",
+			"new_filter8": "true",
+			"new_filter9": "false"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/p/w/skate2.jpg"
 	},
@@ -42,9 +68,19 @@
 		"address": "1114 Shawan Road Cockeysville, Maryland 21030",
 		"description": "Baltimore County developed an agricultural resource center on this 149-acre property on the corner of Shawan and Cuba Roads.",
 		"details": {
-			"pets_allowed": "false",
-			"alcohol_allowed": "false",
-			"all": "true"
+			"Play Grounds": "false",
+			"Amphitheater": "true",
+			"alcohol_allowed": "true",
+			"pets_allowed": "true",
+			"new_filter1": "false",
+			"new_filter2": "false",
+			"new_filter3": "true",
+			"new_filter4": "false",
+			"new_filter5": "false",
+			"new_filter6": "false",
+			"new_filter7": "true",
+			"new_filter8": "false",
+			"new_filter9": "true"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/p/a/AgCtrAerialSmall.jpg"
 	},
@@ -53,9 +89,19 @@
 		"address": "10650 Falls Road Lutherville, Maryland 21093",
 		"description": "Located on the southwest corner of Falls and Greenspring Valley Roads just north of the Baltimore Beltway (I-695) and the Jones Falls Expressway (I-83), Meadowood Regional Park serves as a green gateway to scenic Greenspring Valley.",
 		"details": {
-			"pets_allowed": "true",
+			"Play Grounds": "false",
+			"Amphitheater": "true",
 			"alcohol_allowed": "true",
-			"all": "true"
+			"pets_allowed": "false",
+			"new_filter1": "true",
+			"new_filter2": "true",
+			"new_filter3": "true",
+			"new_filter4": "false",
+			"new_filter5": "false",
+			"new_filter6": "false",
+			"new_filter7": "false",
+			"new_filter8": "false",
+			"new_filter9": "false"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/d/m/meadplay.jpg"
 	},
@@ -64,9 +110,19 @@
 		"address": "7800 Dunmanway Extended Dundalk, Maryland 21222",
 		"description": "Merritt Point Park, located on Bull Neck Creek, features one two-lane boat ramp.",
 		"details": {
-			"pets_allowed": "true",
+			"Play Grounds": "true",
+			"Amphitheater": "true",
 			"alcohol_allowed": "false",
-			"all": "true"
+			"pets_allowed": "true",
+			"new_filter1": "false",
+			"new_filter2": "true",
+			"new_filter3": "false",
+			"new_filter4": "false",
+			"new_filter5": "true",
+			"new_filter6": "false",
+			"new_filter7": "true",
+			"new_filter8": "false",
+			"new_filter9": "false"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/v/f/merritramp.jpg"
 	},
@@ -75,10 +131,30 @@
 		"address": "2200 Rocky Point Road Essex, Maryland 21221",
 		"description": "Rocky Point Park is located on the bay at the mouth of Back River.",
 		"details": {
-			"pets_allowed": "false",
-			"alcohol_allowed": "false",
-			"all": "true"
+			"Play Grounds": "true",
+			"Amphitheater": "false",
+			"alcohol_allowed": "true",
+			"pets_allowed": "true",
+			"new_filter1": "false",
+			"new_filter2": "false",
+			"new_filter3": "false",
+			"new_filter4": "true",
+			"new_filter5": "false",
+			"new_filter6": "false",
+			"new_filter7": "true",
+			"new_filter8": "true",
+			"new_filter9": "false"
 		},
 		"image": "https://www.baltimorecountymd.gov/sebin/l/k/rockyrampB.JPG"
-	}
-]
+	}],
+	"users" : [
+		{
+			"username": "username1",
+			"password": "password1"
+		},
+		{
+			"username": "username2",
+			"password": "password2"
+		}
+	]
+}

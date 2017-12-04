@@ -3,7 +3,7 @@ angular
 	.factory('parksFactory', function($http) {
 
 		// responsible for fetching parks everywhere else in the application
-		function getParks() { 
+		function getParks() {
 			return $http.get('data/data.json'); // eventually get from database 
 		} 
 		return { 

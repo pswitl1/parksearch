@@ -22,27 +22,15 @@
 			</div>
 		</nav>
 
-
-	<!--<button ng-click="showMessage = !showMessage">Toggle Message</button>
-
-	<button ng-show="showMessage == true">Secret Message</button>
-	<input type="text" placeholder="leave a message" ng-model="message">
-		<h2> {{ message }}</h2>-->
-
 		<div id="browseContainter" class="container" ng-show="showBrowse === true" ng-hide="showBrowse === false">
 			<div class="col-sm-12 filter-form">
-				<div class="col-sm-6">
-					<div class="input-group">
-						<span class="input-group-addon">Parks Filter</span>
-						<select name="parksFilter" id="parksFilter" ng-model="parksFilterModel" class="form-control">
-							<option value="all">Show All</option>
-							<option value="pets_allowed">Pets Allowed</option>
-							<option value="alcohol_allowed">Alcohol Allowed</option>
-						</select>
-					</div>
+				<div class="row-sm-12" ng-repeat="filter in filters">
+					<input type="checkbox" ng-model="checked" ng-change="filterBy(filter, checked)">
+							{{filter}}
+					
 				</div>
 			</div>
-			<div class="col-sm-4" ng-repeat="park in parks | parksFilter:parksFilterModel">
+			<div class="col-sm-4" ng-repeat="park in parks_to_show">
 				<div class="thumbnail">
 					<img ng-src="{{park.image}}" alt="{{park.name}}">
 					<div class="caption">
@@ -62,10 +50,9 @@
 						</button>
 
 						<div class="details" ng-show="showDetails === true">
-							<h4>
-								<span class="label label-primary">Alcohol allowed: {{park.details.alcohol_allowed}}</span>
-								<span class="label label-primary">Pets allowed: {{park.details.pets_allowed}}</span>
-							</h4>
+							<div ng-repeat="detail in park.true_details">
+								<span class="label label-primary"> {{detail}}</span>
+							</div>
 							<p>{{park.description}}</p>
 						</div>						
 
