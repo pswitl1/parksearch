@@ -6,6 +6,7 @@ angular
 		function getParks() {
 			return $http.get('data/data.json'); // eventually get from database 
 		} 
+		
 		return { 
 			getParks: getParks 
 		}

@@ -12,6 +12,7 @@ angular
 		$scope.showBrowse = true;
 		$scope.showSearch = false;
 		$scope.showLogin = false;
+		$scope.showSignup = false;
 
 		// gets the json data, define functions that interact with the db in here
 		parksFactory.getParks().then(function(data) {
@@ -19,9 +20,8 @@ angular
 			// get park data
 			$scope.parks = data.data.parks;
 			$scope.parks_to_show = $scope.parks;
-			// get user data TODO use this to code login/signup
-			// signup will require users editting the database/json, which I havent looked into yet
-			$scope.users = data.data.users;
+			
+			
 			
 			// get first park details to set a list of filters 
 			// set scope.filters, each park should have eht same details, with a true/false for each one
@@ -69,11 +69,56 @@ angular
 				}
 			}
 
-			// add code here for user login
-			// should need $scope.users, and you will need to add html
+			$scope.users = data.data.users;
+
+			$scope.submit=function(){
+				for (var p = 0; p < $scope.users.length; p++) { 
+				if(angular.equals($scope.users[p].username, $scope.username) && angular.equals($scope.users[p].password, $scope.password)){
+					alert("Welcome Back "+$scope.username+" !");
+					$scope.showBrowse = true;
+					$scope.showLogin = false;			
+
+					break;
+				}
+				else
+					{}
+
+			}
+			if(!$scope.showBrowse)
+			alert("information is invalid");
+		}
+
+		$scope.submitTosign=function(){
+			$scope.showSignup = true;
+		}
+
+		$scope.submitSign=function(){
+		 fields = true; 
+		 if(!$scope.user || !$scope.pass ){
+		  	alert("Must enter all fields");
+		  	fields = false;
+		  }
+		 for (var p = 0; p < $scope.users.length; p++) { 
+				if(angular.equals($scope.users[p].username, $scope.user)){
+					alert("sorry, that username is taken!");
+					fields = false;
+				}
+				else{} 
+			}
 
 
-		// if there is an error 
+		if(fields){
+			// put in adding new sign up when we have database
+			alert("Welcome "+$scope.user);
+			$scope.showBrowse = true;
+			$scope.showLogin = false;
+			$scope.showSignup = false;
+		}
+		}
+
+
+
+			
 		}, function(error) {
 
 			console.log(error);
@@ -85,12 +130,16 @@ angular
 			$scope.showBrowse = false;
 			$scope.showSearch = false;
 			$scope.showLogin = false;
+			$scope.showSignup = false;
 			if (tab == 'browse')
 				$scope.showBrowse = true;
 			else if (tab == 'search')
 				$scope.showSearch = true;
 			else if (tab == 'login')
 				$scope.showLogin = true;
+			else if (tab == 'signup')
+				$scope.showSignup = true;
+
 			
 		}
 	});

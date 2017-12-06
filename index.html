@@ -13,11 +13,12 @@
 	<body ng-app="parkSearch" ng-controller="parkSearchController">
 
 		<nav class="navbar navbar-default">
-			<div class="container-fluid">
+			<div class="btn-group btn-group-lg">
 				<div class="navbar-header">
-					<button class="navbar-brand btn btn-xs nav-btn" ng-click="switchTab('browse')">Browse</button>
-					<button class="navbar-brand btn btn-xs nav-btn" ng-click="switchTab('search')">Search</button>
-					<button class="navbar-brand btn btn-xs nav-btn" ng-click="switchTab('login')">Login</button>
+					<button class="navbar-brand btn "  ng-click="switchTab('browse')">Browse</button>
+					<button class="navbar-brand btn " ng-click="switchTab('search')">Search</button>
+					<button class="navbar-brand btn " ng-click="switchTab('login')">Login</button>
+					
 				</div>
 			</div>
 		</nav>
@@ -63,15 +64,27 @@
 		<div id="searchContainter" class="container" ng-show="showSearch === true" ng-hide="showSearch === false">
 			<p>Add search funcionality here</p>
 		</div>
+
+		
 		<div id="loginContainer" class="container row-sm-4 filter-form" ng-show="showLogin === true" ng-hide="showLogin === false">
-			<div style="text-align:center">
+			<div style="text-align:center" >
 			<h style="font-size:25px">Enter Username and Password</h><br>
-			<input type="text" name="username" value="username"/><br>
-			<input type="text" name="password" value="password"/><br>
-			<button class="btn btn-xs">Log In</button>
+			<input type="text" name="username" ng-model="username" placeholder="enter username"/><br>
+			<input type="password" name="password" ng-model="password" placeholder="enter password"/><br>
+			<button type="submit" ng-click="submit()" class="btn btn-md">Log In</button>
+			<button type="submit" ng-click="submitTosign()" class="btn btn-md">Sign up?</button>
 			</div>
 		</div>
 
+			<div id="signupContainter" class="container row-sm-4 filter-form" ng-show="showSignup === true" ng-hide="showSignup === false">
+			<div style="text-align:center">
+			<h style="font-size:25px">Sign up</h><br>
+			<input type="text" name="user" ng-model="user" placeholder="enter username"/><br>
+			<input type="password" name="pass" ng-model="pass" placeholder="enter password"/><br>
+			<input type="email" name="email" ng-model="email" placeholder="enter email"/><br>
+			<button type="submit" ng-click="submitSign()" class="btn btn-md">Sign up!</button>
+			</div>
+		</div>
 	</body>
 
 
