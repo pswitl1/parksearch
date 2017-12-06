@@ -13,6 +13,7 @@ angular
 		$scope.showSearch = false;
 		$scope.showLogin = false;
 		$scope.showSignup = false;
+		$scope.showUser = false;
 
 		// gets the json data, define functions that interact with the db in here
 		parksFactory.getParks().then(function(data) {
@@ -70,23 +71,39 @@ angular
 			}
 
 			$scope.users = data.data.users;
+			var signedin = false;
 
 			$scope.submit=function(){
+
 				for (var p = 0; p < $scope.users.length; p++) { 
 				if(angular.equals($scope.users[p].username, $scope.username) && angular.equals($scope.users[p].password, $scope.password)){
 					alert("Welcome Back "+$scope.username+" !");
+					$scope.showUser=true;   					
 					$scope.showBrowse = true;
-					$scope.showLogin = false;			
+					$scope.showLogin = false;
+					signedin = true;
+					
 
 					break;
 				}
 				else
-					{}
+					{
+						$scope.showUser= false;;
+					}
 
 			}
 			if(!$scope.showBrowse)
 			alert("information is invalid");
+
+	}
+
+		if(signedin)
+		{
+			$scope.showUser= true;
 		}
+
+
+
 
 		$scope.submitTosign=function(){
 			$scope.showSignup = true;
@@ -105,6 +122,7 @@ angular
 				}
 				else{} 
 			}
+		if($scope.showUser)
 
 
 		if(fields){
@@ -131,6 +149,7 @@ angular
 			$scope.showSearch = false;
 			$scope.showLogin = false;
 			$scope.showSignup = false;
+
 			if (tab == 'browse')
 				$scope.showBrowse = true;
 			else if (tab == 'search')

@@ -14,14 +14,15 @@
 
 		<nav class="navbar navbar-default">
 			<div class="btn-group btn-group-lg">
-				<div class="navbar-header">
-					<button class="navbar-brand btn "  ng-click="switchTab('browse')">Browse</button>
+				<div class="navbar-header" >
+					<button class=" navbar-brand btn "  ng-click="switchTab('browse')">Browse</button>
 					<button class="navbar-brand btn " ng-click="switchTab('search')">Search</button>
 					<button class="navbar-brand btn " ng-click="switchTab('login')">Login</button>
-					
 				</div>
+				<div class="d-inline-block bg-info " ng-show="showUser === true" ng-hide="showUser === false" >Welcome {{username}}!</div>
 			</div>
 		</nav>
+
 
 		<div id="browseContainter" class="container" ng-show="showBrowse === true" ng-hide="showBrowse === false">
 			<div class="col-sm-12 filter-form">
