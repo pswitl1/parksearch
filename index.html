@@ -1,127 +1,54 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="main">
+	<head> 
+		<meta http-equiv="Cache-control" content="no-cache">
+		<meta charset="UTF-8">
+		<title>Park Search</title>
+		<base href="/"></base>
 
-	<head>
-		<title>parkSearch</title>
-			
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/style.css"
+
+		<!-- custom css -->
+		<link rel="stylesheet" type="text/css" href="./style.css">
 	</head>
 
-	<body ng-app="parkSearch" ng-controller="parkSearchController">
+	<body>
+		<div ng-view id="mainContent"></div>
 
-		<nav class="navbar navbar-default">
-			<div class="btn-group btn-group-lg">
-				<div class="navbar-header" >
-					<button class=" navbar-brand btn "  ng-click="switchTab('browse')">Browse</button>
-					<button class="navbar-brand btn " ng-click="switchTab('search')">Search</button>
-					<button class="navbar-brand btn " ng-click="switchTab('login')">Login</button>
-				</div>
-				<div class="d-inline-block bg-info " ng-show="showUser === true" ng-hide="showUser === false" >Welcome {{username}}!</div>
-			</div>
-		</nav>
+		<!-- JAVASCRIPT -->
+
+		<!-- jquery -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous"></script>
+
+		<!-- angularjs -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+		<!-- angular route -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+		<!-- bootstrap js -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- ui boostrap -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 
 
-		<div id="browseContainter" class="container" ng-show="showBrowse === true" ng-hide="showBrowse === false">
-			<div class="col-sm-12 filter-form">
-				<div class="row-sm-12" ng-repeat="filter in filters">
-					<input type="checkbox" ng-model="checked" ng-change="filterBy(filter, checked)">
-							{{filter}}
-					
-				</div>
-			</div>
-			<div class="col-sm-4" ng-repeat="park in parks_to_show">
-				<div class="thumbnail">
-					<img ng-src="{{park.image}}" alt="{{park.name}}">
-					<div class="caption">
-						<h3>{{park.name}}</h3>
-						<h4><i class="glyphicon glyphicon-home"></i> Address: {{park.address}}</h4>
+		<!-- app js -->
+		<script src="app.js"></script>
 
-						<button class="btn btn-xs btn-success"
-								ng-hide="showDetails === true"
-								ng-click="showDetails = !showDetails">
-								Details
-						</button>
+		<!-- controller js -->
+		<script src="scripts/homeCtrl.js"></script>
+		<script src="scripts/loginCtrl.js"></script>
+		<script src="scripts/signUpCtrl.js"></script>
+		<script src="scripts/browseCtrl.js"></script>
+		<script src="scripts/searchCtrl.js"></script>
 
-						<button class="btn btn-xs btn-danger"
-								ng-show="showDetails === true"
-								ng-click="showDetails = !showDetails">
-								Close
-						</button>
 
-						<div class="details" ng-show="showDetails === true">
-							<div ng-repeat="detail in park.true_details">
-								<span class="label label-primary"> {{detail}}</span>
-							</div>
-							<p>{{park.description}}</p>
-						</div>						
+		<!-- service js -->
+		<script src="scripts/userService.js"></script>
 
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="searchContainter" class="container" ng-show="showSearch === true" ng-hide="showSearch === false">
-			<p>Add search funcionality here</p>
-		</div>
-
-		
-		<div id="loginContainer" class="container row-sm-4 filter-form" ng-show="showLogin === true" ng-hide="showLogin === false">
-			<div style="text-align:center" >
-			<h style="font-size:25px">Enter Username and Password</h><br>
-			<input type="text" name="username" ng-model="username" placeholder="enter username"/><br>
-			<input type="password" name="password" ng-model="password" placeholder="enter password"/><br>
-			<button type="submit" ng-click="submit()" class="btn btn-md">Log In</button>
-			<button type="submit" ng-click="submitTosign()" class="btn btn-md">Sign up?</button>
-			</div>
-		</div>
-
-			<div id="signupContainter" class="container row-sm-4 filter-form" ng-show="showSignup === true" ng-hide="showSignup === false">
-			<div style="text-align:center">
-			<h style="font-size:25px">Sign up</h><br>
-			<input type="text" name="user" ng-model="user" placeholder="enter username"/><br>
-			<input type="password" name="pass" ng-model="pass" placeholder="enter password"/><br>
-			<input type="email" name="email" ng-model="email" placeholder="enter email"/><br>
-			<button type="submit" ng-click="submitSign()" class="btn btn-md">Sign up!</button>
-			</div>
-		</div>
 	</body>
-
-
-
-
-
-
-
-
-
-	<!-- JAVASCRIPT -->
-
-	<!-- jquery -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-
-	<!-- angularjs -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
-
-
-	<!-- Optional theme 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
-
-	<!-- bootstrap js -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-	<!-- ui boostrap -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-
-	<!-- app js -->
-	<script src="app.js"></script>
-
-	<!-- scripts -->
-	<script src="scripts/parkSearchController.js"></script>
-	<script src="scripts/parksFactory.js"></script>
-	<script src="scripts/parksFilter.js"></script>
-
 </html>

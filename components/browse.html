@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+	<div class="btn-group btn-group-lg">
+		<div class="navbar-header">
+			<button class="navbar-brand btn "  ng-click="search()">Search</button>
+			<button class="navbar-brand btn " ng-click="logInOrOutClicked()">{{logInOrOut}}</button>
+			<button class="navbar-brand btn user-button" disabled>User: {{user}}</button>
+
+		</div>
+	</div>
+</nav>
+<div class="col-sm-4" ng-repeat="park in parks_to_show">
+	<div class="thumbnail">
+		<img ng-src="{{park.photo_link}}" alt="{{park.name}}">
+		<div class="caption">
+			<h3>{{park.name}}</h3>
+			<h4><i class="glyphicon glyphicon-home"></i> Address: {{park.address}}</h4>
+
+			<button class="btn btn-xs btn-success"
+			ng-hide="showDetails === true"
+			ng-click="showDetails = !showDetails">
+			Details</button>
+
+			<button class="btn btn-xs btn-danger"
+			ng-show="showDetails === true"
+			ng-click="showDetails = !showDetails">
+			Close</button>
+
+			<div class="details" ng-show="showDetails === true">
+				<p>{{park.description}} Park Features Below:</p>
+				<div ng-repeat="detail in park.true_details">
+					<span class="label label-primary"> {{detail}}</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
