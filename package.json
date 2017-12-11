@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-mysql-tutorial",
+  "name": "parksearch",
   "version": "1.0.0",
-  "description": "",
+  "description": "clone repo:",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,5 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "lite-server": "^2.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pswitl1/parksearch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pswitl1/parksearch/issues"
+  },
+  "homepage": "https://github.com/pswitl1/parksearch#readme"
 }
