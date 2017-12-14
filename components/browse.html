@@ -1,21 +1,102 @@
-<nav class="navbar navbar-default">
-	<div class="btn-group btn-group-lg">
-		<div class="navbar-header">
-			<button class="navbar-brand btn "  ng-click="search()">Search</button>
-			<button class="navbar-brand btn " ng-click="logInOrOutClicked()">{{logInOrOut}}</button>
-			<button class="navbar-brand btn user-button" disabled>User: {{user}}</button>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #191818 ;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+       body{
+      background: linear-gradient(to bottom, #a6a6a6 19%, #ffffff 100%);
+    }   
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+   .bord{
+    	
+    outline: solid black 10px;
+    margin: auto;    
+    padding: 20px;
 
-		</div>
-	</div>
-</nav>	
+    }
+  .item{
+  	height: 520px !important;
+  }
+  .feat{
+  	color:white;
+  }
+  .revs{
+
+    border-radius: 25px;
+    border: 2px solid #92B558;
+    padding: 5px; 
+    width: 300px;
+    height: 40px;   
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+    h3{
+    	font-size: 40px;
+    }
+
+  }
+
+  }
+  </style>
+  </head>
+<body>
+<div id="BrowseForm">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Park Search</a>
+    </div>
+	   <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="#"  ng-click="search()">Search</a></li>
+       	<li><a href="#"   ng-click="logInOrOutClicked()"> {{logInOrOut}} </a></li>
+       </ul>
+       	<ul class="nav navbar-nav navbar-right">
+       	<li><a href="#"  class="glyphicon glyphicon-user blue" disabled>User: {{user}}</a></li>
+	  </ul>
+      </div>
+  </div>
+</nav>
+	
 <div id="browseContainer" class="container">
 
-	<div class="navbar navbar-default col-sm-12 feature-form">
-		<div class="row-sm-12" ng-repeat="feature in features">
+	 <fieldset> 
+      <legend>Choose some options</legend>
+	<div class="navbar navbar-default col-sm-12 feature-form" >
+		<div class="row-sm-12 " ng-repeat="feature in features">
 			<input type="checkbox" ng-model="checked" ng-change="featureChanged(feature, checked)">
-			{{feature}}
+			<span class="feat">{{feature}}</span>
+		
 		</div>
 	</div>
+</fieldset>
+<br/>
+
 	<div class="col-sm-4" ng-repeat="park in parks_to_show">
 		<div class="thumbnail">
 			<img ng-src="{{park.photo_link}}" alt="{{park.name}}">
@@ -56,7 +137,7 @@
 					{{park.review}}
 					<div ng-repeat="review in park.review">
 						<fieldset> 
-      					<p>{{review.username}}: {{review.review}}</p>
+      					<p class="revs" >{{review.username}}: {{review.review}}</p>
 					</fieldset>					
 					</div></div>
 

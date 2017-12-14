@@ -1,17 +1,81 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      background-color: #191818 ;
+    }
+      
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+  .item{
+  	height: 520px !important;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+    h3{
+    	font-size: 40px;
+    }
+    .button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+    .button1:hover {
+    background-color: #555555;
+    color: white;
+}
+   
+  }
+  </style>
+  </head>
+<body>
 <div id="loginForm">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Park Search</a>
+    </div>
+	   <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="#" ng-click="back()">Home</a></li>
+       	<li><a href="#"  ng-click="signup()">SignUp</a></li>
+	  </ul>
+      </div>
+  </div>
+</nav>
+
 	<div class="input">
-		<input type="text" ng-model="username" placeholder="Username">
+		Username: <input type="text" ng-model="username" placeholder="Username">
 	</div>
 	<div class="input">
-		<input type="Password" ng-model="password" placeholder="Password">
+		Password: <input type="Password" ng-model="password" placeholder="Password">
 	</div>
 	<div class="input">
-		<button ng-click="login()">Login</button>
+		<button class= "button button1" ng-click="login()">Login</button>
 	</div>
-	<div class="input">
-		<button ng-click="signup()">Sign Up</button>
-	</div>
-	<div class="input">
-		<button ng-click="back()">Back</button>
-	</div>
+	
 </div>
+</body>
