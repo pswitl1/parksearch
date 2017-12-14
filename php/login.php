@@ -23,6 +23,8 @@ $result = mysqli_query($con, $query);
 if (mysqli_num_rows($result) > 0) {
 	$response['status'] = 'loggedin';
 	$response['user'] = $username;
+	$response['user_id'] = $username;
+
 	$response['id'] = md5(uniqid());
 	$_SESSION['id'] = $response['id'];
 	$_SESSION['user'] = $username;

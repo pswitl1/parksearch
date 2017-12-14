@@ -33,18 +33,47 @@
 				ng-click="showDetails = !showDetails">
 				Close</button>
 
+				<button class="btn btn-xs btn-success"
+					ng-hide="showReviews === true"
+					ng-click="showReviews = !showReviews">
+					Reviews</button>
+
+					<button class="btn btn-xs btn-danger"
+					ng-show="showReviews === true"
+					ng-click="showReviews = !showReviews">
+					Close</button>
+
+					<div class="reviews" ng-show="showReviews === true">
+					Review: 
+					
+					<div class="input">
+						<input type="text" ng-model="textarea" placeholder="Enter a review!">
+					</div>
+					<div class="input">
+					<button ng-click="entreview(park.id, textarea)">Submit</button>
+					</div>
+			
+
+					<div ng-repeat="review in park.review">
+						<fieldset> 
+      					<p>{{review.username}}: {{review.review}}</p>
+					</fieldset>					
+					</div></div>
+
 				<div class="details" ng-show="showDetails === true">
 					<p>{{park.description}}</p>
 					<p>{{park.phone}}</p>
 					<p>{{park.address}}</p>
 					<a ng-href="{{park.website_link}}">Website</a>
 					<p>{{park.hours}}</p>
-					Features:
+					Features:  {{park.details}}
 					<div ng-repeat="detail in park.details">
 
 						<span class="label label-primary"> {{detail}}</span>
 					
 					</div>
+
+					
 
 				</div>
 				<!-- add review section -->

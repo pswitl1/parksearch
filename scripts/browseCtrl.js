@@ -6,6 +6,7 @@ angular.module('main')
 	$scope.parks = [];
 	$scope.parks_to_show = [];
 	$scope.features_with_id = [];
+	$scope.review= [];
 	$scope.features = [];
 	$scope.selected_features = [];
 
@@ -27,13 +28,25 @@ angular.module('main')
 
 		});
 
+		$http.get("http://localhost/php/getReview.php")
+		.then(function (response) {
+			for (var i = 0; i < response.data.records.length; i++) {
+				$scope.review.push(response.data.records[i]);				
+			}
+
+		});
+
+
+		
 	// get all parks initially
 	$http.get("http://localhost/php/getparks.php")
 		.then(function (response) {
 			$scope.parks = response.data.records;
 			for (var j = 0; j < $scope.parks.length; j++) {
 				$scope.parks[j].details = []
+				$scope.parks[j].review = []
 			}
+
 			for (var i = 0; i < $scope.features_with_id.length; i++) {
 				for (var j = 0; j < $scope.parks.length; j++) {
 					if ($scope.features_with_id[i].park_id == $scope.parks[j].id) {
@@ -41,7 +54,16 @@ angular.module('main')
 					}
 				}
 			}
+			console.log($scope.review);
+			for (var i = 0; i < $scope.review.length; i++) {
+				for (var j = 0; j < $scope.parks.length; j++) {
+					if ($scope.review[i].park_id == $scope.parks[j].id) {
+						$scope.parks[j].review.push($scope.review[i])
+					}
+				}
+			}
 			$scope.parks_to_show = $scope.parks;
+			console.log($scope.parks_to_show);
 
 		});
 
@@ -92,9 +114,41 @@ angular.module('main')
 				}
 
 			});
-	}
+			}
+		$scope.back = function() {
+			$location.path('/');
+		}
+			$scope.entreview = function(park_id, text) {
+			var username = $scope.user;
+			
+			console.log(park_id);
+			console.log(username);
+			console.log(text);
+
+			if(angular.equals(username, 'Guest')){
+				alert("Cannt leave a review as a Guest!");
+			}
+			else{
+			$http({
+					url: 'http://localhost/php/newreview.php',
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					data: 'username='+username+'&park_id='+park_id+'&review='+text
+					}).then(function(response) {
+
+					if(response.data.status == 'entered') {
+						alert('Your Review has been submitted.');						
+					}
+					
+					
+				});
+			}
+		}
+
+	});
 
 
 
-});
 
