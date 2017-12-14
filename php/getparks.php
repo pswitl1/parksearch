@@ -16,7 +16,6 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"description":"'   . $rs["description"]        . '",';
     $outp .= '"address":"'   . $rs["address"]        . '",';
     $outp .= '"phone":"'   . $rs["phone"]        . '",';
-    $outp .= '"email":"'   . $rs["email"]        . '",';
     $outp .= '"hours":"'   . $rs["hours"]        . '",';
     $outp .= '"photo_link":"'. $rs["photo_link"]     . '"}';
 }
