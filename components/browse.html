@@ -134,7 +134,7 @@
 					<button ng-click="entreview(park.id, textarea)">Submit</button>
 					</div>
 			
-					{{park.review}}
+	<div style="display:inline">{{park.review_search}}</div>
 					<div ng-repeat="review in park.review">
 						<fieldset> 
       					<p class="revs" >{{review.username}}: {{review.review}}</p>
@@ -147,7 +147,7 @@
 					<p>{{park.address}}</p>
 					<a ng-href="{{park.website_link}}">Website</a>
 					<p>{{park.hours}}</p>
-					Features:  {{park.details}}
+					Features:  <div style="display:none">{{park.details}}</div>
 					<div ng-repeat="detail in park.details">
 
 						<span class="label label-primary"> {{detail}}</span>
