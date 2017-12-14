@@ -9,7 +9,7 @@ session_start();
 
 $response = [];
 
-$con = mysqli_connect('localhost', 'root', '', 'parksearch');
+$con = mysqli_connect('localhost', 'root', '', 'ParkSearch');
 
 $username = mysqli_real_escape_string($con, $_POST['username']);
 $park_id = mysqli_real_escape_string($con, $_POST['park_id']);

@@ -53,7 +53,7 @@
 					<button ng-click="entreview(park.id, textarea)">Submit</button>
 					</div>
 			
-
+					{{park.review}}
 					<div ng-repeat="review in park.review">
 						<fieldset> 
       					<p>{{review.username}}: {{review.review}}</p>

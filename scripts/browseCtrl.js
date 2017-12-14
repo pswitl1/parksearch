@@ -54,7 +54,6 @@ angular.module('main')
 					}
 				}
 			}
-			console.log($scope.review);
 			for (var i = 0; i < $scope.review.length; i++) {
 				for (var j = 0; j < $scope.parks.length; j++) {
 					if ($scope.review[i].park_id == $scope.parks[j].id) {
@@ -63,7 +62,6 @@ angular.module('main')
 				}
 			}
 			$scope.parks_to_show = $scope.parks;
-			console.log($scope.parks_to_show);
 
 		});
 
@@ -121,10 +119,6 @@ angular.module('main')
 			$scope.entreview = function(park_id, text) {
 			var username = $scope.user;
 			
-			console.log(park_id);
-			console.log(username);
-			console.log(text);
-
 			if(angular.equals(username, 'Guest')){
 				alert("Cannt leave a review as a Guest!");
 			}
