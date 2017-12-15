@@ -1,6 +1,6 @@
 angular
-	.module('main', ['ngRoute', 'ui.bootstrap'])
-	.config(function($routeProvider, $locationProvider) {
+.module('main', ['ngRoute', 'ui.bootstrap'])
+.config(function($routeProvider, $locationProvider) {
 	
 		// configure routing
 		$routeProvider.when('/', {
@@ -45,5 +45,4 @@ angular
 
 		// configure html5 mode
 		$locationProvider.html5Mode(true);
-	}
-);
+	});

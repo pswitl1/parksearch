@@ -1,120 +1,120 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-      background-color: #191818 ;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-       body{
-      background: linear-gradient(to bottom, #a6a6a6 19%, #ffffff 100%);
-    }   
-    
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
-   .bord{
-    	
-    outline: solid black 10px;
-    margin: auto;    
-    padding: 20px;
+	/* Remove the navbar's default margin-bottom and rounded borders */ 
+	.navbar {
+		margin-bottom: 0;
+		border-radius: 0;
+		background-color: #191818 ;
+	}
 
-    }
-  .item{
-  	height: 520px !important;
-  }
-  .feat{
-  	color:white;
-  }
-  .revs{
+	/* Add a gray background color and some padding to the footer */
+	footer {
+		background-color: #f2f2f2;
+		padding: 25px;
+	}
+	body{
+		background: linear-gradient(to bottom, #a6a6a6 19%, #ffffff 100%);
+	}   
 
-    border-radius: 25px;
-    border: 2px solid #92B558;
-    padding: 5px; 
-    width: 300px;
-    height: 40px;   
-  }
+	.carousel-inner img {
+		width: 100%; /* Set width to 100% */
+		margin: auto;
+		min-height:200px;
+	}
+	.bord{
 
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-    h3{
-    	font-size: 40px;
-    }
+		outline: solid black 10px;
+		margin: auto;    
+		padding: 20px;
 
-  }
+	}
+	.item{
+		height: 520px !important;
+	}
+	.feat{
+		color:white;
+	}
+	.revs{
 
-  }
-  </style>
-  </head>
-<body>
+		border-radius: 25px;
+		border: 2px solid #92B558;
+		padding: 5px; 
+		width: 300px;
+		height: 40px;   
+	}
+
+	/* Hide the carousel text when the screen is less than 600 pixels wide */
+	@media (max-width: 600px) {
+		.carousel-caption {
+			display: none; 
+		}
+		h3{
+			font-size: 40px;
+		}
+
+	}
+
+}
+</style>
+<!--</head>
+	<body>-->
 <div id="BrowseForm">
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Park Search</a>
-    </div>
-	   <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li ><a href="#"  ng-click="search()">Search</a></li>
-       	<li><a href="#"   ng-click="logInOrOutClicked()"> {{logInOrOut}} </a></li>
-       </ul>
-       	<ul class="nav navbar-nav navbar-right">
-       	<li><a href="#"  class="glyphicon glyphicon-user blue" disabled>User: {{user}}</a></li>
-	  </ul>
-      </div>
-  </div>
-</nav>
-	
-<div id="browseContainer" class="container">
-
-	 <fieldset> 
-      <legend>Choose some options</legend>
-	<div class="navbar navbar-default col-sm-12 feature-form" >
-		<div class="row-sm-12 " ng-repeat="feature in features">
-			<input type="checkbox" ng-model="checked" ng-change="featureChanged(feature, checked)">
-			<span class="feat">{{feature}}</span>
-		
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" href="#">Park Search</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li ><a href="#"  ng-click="search()">Search</a></li>
+					<li><a href="#"   ng-click="logInOrOutClicked()"> {{logInOrOut}} </a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"  class="glyphicon glyphicon-user blue" disabled>User: {{user}}</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</fieldset>
-<br/>
+	</nav>
 
-	<div class="col-sm-4" ng-repeat="park in parks_to_show">
-		<div class="thumbnail">
-			<img ng-src="{{park.photo_link}}" alt="{{park.name}}">
-			<div class="caption">
-				<h3>{{park.name}}</h3>
-				<h4><i class="glyphicon glyphicon-home"></i> Address: {{park.address}}</h4>
+	<div id="browseContainer" class="container">
 
-				<button class="btn btn-xs btn-success"
-				ng-hide="showDetails === true"
-				ng-click="showDetails = !showDetails">
-				Details</button>
+		<fieldset> 
+			<legend>Choose some options</legend>
+			<div class="navbar navbar-default col-sm-12 feature-form" >
+				<div class="row-sm-12 " ng-repeat="feature in features">
+					<input type="checkbox" ng-model="checked" ng-change="featureChanged(feature, checked)">
+					<span class="feat">{{feature}}</span>
 
-				<button class="btn btn-xs btn-danger"
-				ng-show="showDetails === true"
-				ng-click="showDetails = !showDetails">
-				Close</button>
+				</div>
+			</div>
+		</fieldset>
+		<br/>
 
-				<button class="btn btn-xs btn-success"
+		<div class="col-sm-4" ng-repeat="park in parks_to_show">
+			<div class="thumbnail">
+				<img ng-src="{{park.photo_link}}" alt="{{park.name}}">
+				<div class="caption">
+					<h3>{{park.name}}</h3>
+					<h4><i class="glyphicon glyphicon-home"></i> Address: {{park.address}}</h4>
+
+					<button class="btn btn-xs btn-success"
+					ng-hide="showDetails === true"
+					ng-click="showDetails = !showDetails">
+					Details</button>
+
+					<button class="btn btn-xs btn-danger"
+					ng-show="showDetails === true"
+					ng-click="showDetails = !showDetails">
+					Close</button>
+
+					<button class="btn btn-xs btn-success"
 					ng-hide="showReviews === true"
 					ng-click="showReviews = !showReviews">
 					Reviews</button>
@@ -125,39 +125,41 @@
 					Close</button>
 
 					<div class="reviews" ng-show="showReviews === true">
-					Review: 
-					
-					<div class="input">
-						<input type="text" ng-model="textarea" placeholder="Enter a review!">
-					</div>
-					<div class="input">
-					<button ng-click="entreview(park.id, textarea)">Submit</button>
-					</div>
-			
-	<div style="display:inline">{{park.review_search}}</div>
-					<div ng-repeat="review in park.review">
-						<fieldset> 
-      					<p class="revs" >{{review.username}}: {{review.review}}</p>
-					</fieldset>					
-					</div></div>
+						Review: 
 
-				<div class="details" ng-show="showDetails === true">
-					<p>{{park.description}}</p>
-					<p>{{park.phone}}</p>
-					<p>{{park.address}}</p>
-					<a ng-href="{{park.website_link}}">Website</a>
-					<p>{{park.hours}}</p>
-					Features:  <div style="display:none">{{park.details}}</div>
-					<div ng-repeat="detail in park.details">
+						<div class="input">
+							<input type="text" ng-model="textarea" placeholder="Enter a review!">
+						</div>
+						<div class="input">
+							<button ng-click="entreview(park.id, textarea)">Submit</button>
+						</div>
 
-						<span class="label label-primary"> {{detail}}</span>
-					
+						<div style="display:inline">{{park.review_search}}</div>
+						<div ng-repeat="review in park.review">
+							<fieldset> 
+								<p class="revs" >{{review.username}}: {{review.review}}</p>
+							</fieldset>					
+						</div>
 					</div>
 
-					
+					<div class="details" ng-show="showDetails === true">
+						<p>{{park.description}}</p>
+						<p>{{park.phone}}</p>
+						<p>{{park.address}}</p>
+						<a ng-href="{{park.website_link}}">Website</a>
+						<p>{{park.hours}}</p>
+						Features:  <div style="display:none">{{park.details}}</div>
+						<div ng-repeat="detail in park.details">
 
+							<span class="label label-primary"> {{detail}}</span>
+
+						</div>
+
+
+
+					</div>
+					<!-- add review section -->
 				</div>
-				<!-- add review section -->
 			</div>
 		</div>
 	</div>

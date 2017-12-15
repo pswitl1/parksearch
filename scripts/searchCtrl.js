@@ -14,50 +14,50 @@ angular.module('main')
 
 	// get all features to show above parks
 	$http.get("http://localhost/php/getfeatures.php")
-		.then(function (response) {
-			$scope.features_with_id_search = response.data.records;
-			for (var i = 0; i < response.data.records.length; i++) {
-				if ($scope.features_search.indexOf(response.data.records[i].feature) == -1) {
-					$scope.features_search.push(response.data.records[i].feature);
-				}
+	.then(function (response) {
+		$scope.features_with_id_search = response.data.records;
+		for (var i = 0; i < response.data.records.length; i++) {
+			if ($scope.features_search.indexOf(response.data.records[i].feature) == -1) {
+				$scope.features_search.push(response.data.records[i].feature);
 			}
-		});
+		}
+	});
 
 	$http.get("http://localhost/php/getReview.php")
-		.then(function (response) {
-			for (var i = 0; i < response.data.records.length; i++) {
-				$scope.review_search.push(response.data.records[i]);				
-			}
+	.then(function (response) {
+		for (var i = 0; i < response.data.records.length; i++) {
+			$scope.review_search.push(response.data.records[i]);				
+		}
 
-		});
+	});
 
 	// get all parks initially
 	$http.get("http://localhost/php/getparks.php")
-		.then(function (response) {
-			$scope.parks_search = response.data.records;
+	.then(function (response) {
+		$scope.parks_search = response.data.records;
+		for (var j = 0; j < $scope.parks_search.length; j++) {
+			$scope.parks_search[j].details_search = []
+			$scope.parks_search[j].review_search = []
+
+		}
+
+		for (var i = 0; i < $scope.features_with_id_search.length; i++) {
 			for (var j = 0; j < $scope.parks_search.length; j++) {
-				$scope.parks_search[j].details_search = []
-				$scope.parks_search[j].review_search = []
-
-			}
-
-			for (var i = 0; i < $scope.features_with_id_search.length; i++) {
-				for (var j = 0; j < $scope.parks_search.length; j++) {
-					if ($scope.features_with_id_search[i].park_id == $scope.parks_search[j].id) {
-						$scope.parks_search[j].details_search.push($scope.features_with_id_search[i].feature)
-					}
+				if ($scope.features_with_id_search[i].park_id == $scope.parks_search[j].id) {
+					$scope.parks_search[j].details_search.push($scope.features_with_id_search[i].feature)
 				}
 			}
-			for (var i = 0; i < $scope.review_search.length; i++) {
-				for (var j = 0; j < $scope.parks_search.length; j++) {
-					if ($scope.review_search[i].park_id == $scope.parks_search[j].id) {
-						$scope.parks_search[j].review_search.push($scope.review_search[i])
-					}
+		}
+		for (var i = 0; i < $scope.review_search.length; i++) {
+			for (var j = 0; j < $scope.parks_search.length; j++) {
+				if ($scope.review_search[i].park_id == $scope.parks_search[j].id) {
+					$scope.parks_search[j].review_search.push($scope.review_search[i])
 				}
 			}
+		}
 
-			$scope.parks_to_show_search = $scope.parks_search;
-		});
+		$scope.parks_to_show_search = $scope.parks_search;
+	});
 
 	
 
@@ -117,7 +117,7 @@ angular.module('main')
 					alert('Your Review has been submitted.');						
 				}
 			});
-		
+			
 		}
 	}
 });

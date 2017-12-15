@@ -21,7 +21,7 @@ create table PARKS
 );
 
 create table REVIEWS
-(   id char(5) not null,
+(   id char(5) not null, #changed to auto increment in phpmyadmin 
     username varchar(50) not null,
     park_id char(5) not null,
     review varchar(500) not null,
